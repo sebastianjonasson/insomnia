@@ -35,13 +35,17 @@ insomnia-import /path/to/har-export.json > insomnia-export.json
 ## Programmatic Usage
 
 ```javascript
-const importers = require('insomnia-importers');
+const importers = require("insomnia-importers");
 
-// Convert a Curl command
-const output = importers.convert('curl -X POST https://insomnia.rest --data "Cool!"');
+(async function () {
+  // Convert a Curl command
+  const output = await importers.convert(
+    'curl -X POST https://insomnia.rest --data "Cool!"'
+  );
 
-// Pretty print the result
-console.log(JSON.stringify(output.data, null, 2));
+  // Pretty print the result
+  console.log(JSON.stringify(output.data, null, 2));
+})();
 ```
 
 ## Running Tests
